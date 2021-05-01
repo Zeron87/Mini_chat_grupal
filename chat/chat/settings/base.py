@@ -38,7 +38,7 @@ DJANGO_APPS = (
 )
 
 LOCAL_APPS = (
-    
+    'users',
 )
 
 THIRD_PARTY_APPS = (
@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'usuarios.urls'
+ROOT_URLCONF = 'chat.urls'
 
 TEMPLATES = [
     {
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'usuarios.wsgi.application'
+WSGI_APPLICATION = 'chat.wsgi.application'
 
 
 # Password validation
@@ -95,6 +95,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
