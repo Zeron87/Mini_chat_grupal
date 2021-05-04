@@ -25,3 +25,9 @@ STATICFILES_DIRS = [BASE_DIR.child('static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR.child('media')
+
+# To disable csrf token 
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [],
+#     'DEFAULT_PERMISSION_CLASSES': [],
+# }

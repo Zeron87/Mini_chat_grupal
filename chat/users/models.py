@@ -20,11 +20,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    def get_short_name(self):
-        return self.username
-
     def get_full_name(self):
         return self.nombres + ' ' + self.apellidos
 
     def get_absolute_url(self):
         return reverse('usuarios_app:user-login')
+
+    class Meta:
+        ordering = ('-last_login',)

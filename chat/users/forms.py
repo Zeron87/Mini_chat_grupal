@@ -4,6 +4,16 @@ from django.contrib.auth import authenticate
 from .models import User
 
 class UserRegisterForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(UserRegisterForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['class'] = 'form-control'
+        self.fields['email'].widget.attrs['class'] = 'form-control'
+        self.fields['nombres'].widget.attrs['class'] = 'form-control'
+        self.fields['apellidos'].widget.attrs['class'] = 'form-control'
+        self.fields['password1'].widget.attrs['class'] = 'form-control'
+        self.fields['password2'].widget.attrs['class'] = 'form-control'
+
     password1 = forms.CharField(
         label='Contraseña',
         required=True, 
@@ -29,11 +39,22 @@ class UserRegisterForm(forms.ModelForm):
             'nombres',
             'apellidos',
         )
+
+     
+    
+
     def clean_password2(self):
         if self.cleaned_data['password1'] != self.cleaned_data['password2']:
             self.add_error('password2', 'Las contraseñas no coinciden') 
 
 class LoginForm(forms.Form):
+
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['class'] = 'form-control'
+        self.fields['password'].widget.attrs['class'] = 'form-control'
+   
+
     username = forms.CharField(
         label='username',
         required=True, 

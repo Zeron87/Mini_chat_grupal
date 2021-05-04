@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Registrar nuevo usuario</h1>
+{% extends 'base.html' %}
+
+{% block header%}
+    <h1>Register Form</h1>
+{% endblock %}
+
+{% block content %}
+<div class="form-group" style="margin-left: 30%; margin-right:30%;">
     <form action="" method="post">{% csrf_token %}
         {{ form.as_p}}
-        <button type="Submit">Registrar</button>
+        <button class="btn btn-secondary" type="Submit" style="width:100%;">GO!</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

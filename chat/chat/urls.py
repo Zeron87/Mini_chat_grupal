@@ -22,4 +22,5 @@ urlpatterns = [
     path('', LoginUserView.as_view(), name='user-login'),
     path('', include('users.urls')),
     path('', include('home.urls')),
+    path('', include('messages.urls')),
 ]
